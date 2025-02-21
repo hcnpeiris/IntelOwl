@@ -39,10 +39,12 @@ RUN mkdir -p ${LOG_PATH} \
 # apache2-utils is required to execute htpasswd
 # tshark is required for Hfinger file analyzer
 # libemail-outlook-message-perl and libemail-address-perl are required for msgconvert
+# p7zip-full and  are required for bbot
 RUN apt-get update \
     && apt-get install -y --no-install-recommends apt-utils libsasl2-dev libssl-dev netcat-traditional \
     vim libldap2-dev libfuzzy-dev net-tools python3-psycopg2 git apache2-utils tshark  \
     libemail-outlook-message-perl libemail-address-perl \
+    p7zip-full openssl \
     && apt-get clean && apt-get autoclean && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
     && pip3 install --no-cache-dir --upgrade pip
